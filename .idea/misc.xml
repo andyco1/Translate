@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/georg/AndroidStudioProjects/Translate/app/src/main/res/drawable/book_alphabet.xml" value="0.2985" />
+        <entry key="..\:/Users/georg/AndroidStudioProjects/Translate/app/src/main/res/drawable/quiz-48px.xml" value="0.2985" />
         <entry key="..\:/Users/georg/AndroidStudioProjects/Translate/app/src/main/res/layout/activity_main.xml" value="0.371875" />
+        <entry key="..\:/Users/georg/AndroidStudioProjects/Translate/app/src/main/res/menu/botton_nav_menu.xml" value="0.37083333333333335" />
       </map>
     </option>
   </component>
