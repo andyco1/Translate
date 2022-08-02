@@ -10,16 +10,18 @@
     <TextView
         android:id="@+id/nativeLanguageText"
         android:layout_width="158dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="115dp"
-        android:layout_marginBottom="200dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="143dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/nativeLanguage"
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/foreignLanguageText"
+        app:layout_constraintEnd_toStartOf="@+id/nativeLanguageSpinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/configurationText" />
 
@@ -27,23 +29,38 @@
         android:id="@+id/nativeLanguageSpinner"
         android:layout_width="150dp"
         android:layout_height="48dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="115dp"
-        android:layout_marginBottom="200dp"
-        android:contentDescription="Language"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="122dp"
+        android:contentDescription="@string/nativeLanguageCD"
         app:layout_constraintBottom_toTopOf="@+id/foreignLanguageSpinner"
-        app:layout_constraintStart_toEndOf="@+id/nativeLanguageText"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/configurationText" />
 
     <Spinner
         android:id="@+id/foreignLanguageSpinner"
         android:layout_width="150dp"
         android:layout_height="48dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="122dp"
         android:layout_marginEnd="40dp"
-        android:contentDescription="Language"
+        android:contentDescription="@string/foreignLanguageCD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nativeLanguageSpinner" />
+
+    <TextView
+        android:id="@+id/foreignLanguageText"
+        android:layout_width="157dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="143dp"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/foreignLanguage"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/foreignLanguageSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nativeLanguageText" />
 
     <TextView
         android:id="@+id/configurationText"
@@ -74,22 +91,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_end="40dp" />
-
-    <TextView
-        android:id="@+id/foreignLanguageText"
-        android:layout_width="158dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="22dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="@string/foreignLanguage"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/foreignLanguageSpinner"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nativeLanguageText" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
