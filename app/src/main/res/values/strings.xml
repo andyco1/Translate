@@ -8,4 +8,17 @@
     <string name="fragmentHome">Home</string>
     <string name="fragmentVocabulary">Vocabulary List</string>
     <string name="fragmentPractice">Practice</string>
+    <string name="desiredConfiguration">Select Desired Configuration:</string>
+    <string name="nativeLanguage">Native Language:</string>
+    <string name="foreignLanguage">Foreign Language:</string>
+    <string-array name="NativeLanguages">
+        <item>English</item>
+        <item>Welsh</item>
+    </string-array>
+
+    <string-array name="ForeignLanguages">
+        <item>French</item>
+        <item>Spanish</item>
+        <item>German</item>
+    </string-array>
 </resources>
