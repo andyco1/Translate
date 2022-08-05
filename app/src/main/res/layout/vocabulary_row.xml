@@ -18,7 +18,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/nativePhrase"
+            android:id="@+id/vocabNative"
             android:layout_width="395dp"
             android:layout_height="35dp"
             android:fontFamily="@font/roboto"
@@ -27,16 +27,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/foreignPhrase" />
+            app:layout_constraintTop_toBottomOf="@+id/vocabForeign" />
 
         <TextView
-            android:id="@+id/foreignPhrase"
+            android:id="@+id/vocabForeign"
             android:layout_width="395dp"
             android:layout_height="41dp"
             android:fontFamily="@font/roboto_bold"
             android:text="@string/foreignLanguage"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/nativePhrase"
+            app:layout_constraintBottom_toTopOf="@+id/vocabNative"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
