@@ -11,6 +11,8 @@ import uk.ac.aber.dcs.cs31620.translate.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    // TODO: Implement screen persistence, ws 5
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

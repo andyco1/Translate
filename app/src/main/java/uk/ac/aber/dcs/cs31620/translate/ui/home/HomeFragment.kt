@@ -10,6 +10,8 @@ import android.widget.*
 import uk.ac.aber.dcs.cs31620.translate.R
 import uk.ac.aber.dcs.cs31620.translate.databinding.FragmentHomeBinding
 
+// TODO: Make content fit screen better as it looks vague
+// TODO: Make the spinners show country flags
 
 class HomeFragment : Fragment() {
 
@@ -27,9 +29,8 @@ class HomeFragment : Fragment() {
         setupSpinner(view, homeFragmentBinding.nativeLanguageSpinner, R.array.NativeLanguages)
         setupSpinner(view, homeFragmentBinding.foreignLanguageSpinner, R.array.ForeignLanguages)
 
-
-
         return homeFragmentBinding.root
+
     }
 
     private fun setupSpinner(view: View?, spinner: Spinner, arrayResourceId: Int) {
@@ -56,6 +57,10 @@ class HomeFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
+                // String of the selected languages to be passed to vocabulary fragment
+                var nativeLanguage : String = homeFragmentBinding.nativeLanguageSpinner.selectedItem.toString()
+                var foreignLanguage : String = homeFragmentBinding.foreignLanguageSpinner.selectedItem.toString()
+
                 Toast.makeText(context, "Item $id selected", Toast.LENGTH_SHORT).show()
             }
         }
