@@ -6,8 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
 import uk.ac.aber.dcs.cs31620.translate.R
 import uk.ac.aber.dcs.cs31620.translate.databinding.FragmentHomeBinding
 import uk.ac.aber.dcs.cs31620.translate.databinding.FragmentVocabularyBinding
@@ -45,10 +49,35 @@ class VocabularyFragment : Fragment() {
         val vocabularyRecyclerAdapter = VocabularyRecyclerWithListAdapter(context, vocabulary.toMutableList())
         listVocabulary.adapter = vocabularyRecyclerAdapter
 
-//        vocabularyRecyclerAdapter.clickListener = View.OnClickListener { v ->
-//            val nameView: TextView = v.findViewById(R.id.catNameTextView)
-//            Toast.makeText(context, "Cat ${nameView.text} clicked",
-//                Toast.LENGTH_SHORT).show()
+        // TODO: Improve the on click listener as currently there is a bug which toasts both text
+        //  views instead of separate
+
+        vocabularyRecyclerAdapter.clickListener = View.OnClickListener { v ->
+            val nativeVocabTextView: TextView = v.findViewById(R.id.vocabNative)
+            Toast.makeText(
+                context, "${nativeVocabTextView.text} row was clicked",
+                Toast.LENGTH_SHORT).show()
+
+            val foreignVocabTextView: TextView = v.findViewById(R.id.vocabForeign)
+            Toast.makeText(
+                context, "${foreignVocabTextView.text} row was clicked",
+                Toast.LENGTH_SHORT).show()
+        }
+
+        val fab = vocabularyFragmentBinding.fabAdd
+        fab.setOnClickListener {
+            val snackbar = Snackbar.make(it, "Add new vocabulary FAB", Snackbar.LENGTH_LONG)
+
+            val bnv = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav_view)
+
+            snackbar.anchorView = bnv
+
+            snackbar.setAction("Undo") {
+
+            }
+            snackbar.show()
+        }
+
 
         return vocabularyFragmentBinding.root
     }

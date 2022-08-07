@@ -13,7 +13,8 @@
     <string name="foreignLanguage">Foreign Language:</string>
     <string name="nativeLanguageCD">A menu allowing selection of a native language</string>
     <string name="foreignLanguageCD">A menu allowing selection of a foreign language</string>
-    <string name="actionButtonDescription">Action button to add vocabulary to the list</string>
+    <string name="actionButtonDescription">Allows user to add vocabulary to the list</string>
+    <string name="deleteButtonDescription">Allows user to delete a vocabulary row from the list</string>
     <string-array name="NativeLanguages">
         <item>English</item>
         <item>Welsh</item>
