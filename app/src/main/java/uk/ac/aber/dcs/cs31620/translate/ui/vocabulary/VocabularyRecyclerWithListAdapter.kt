@@ -28,8 +28,8 @@ class VocabularyRecyclerWithListAdapter(
         }
 
         fun bindDataSet(vocabulary: Vocabulary) {
-            nativeVocabView.text = vocabulary.nativeVocabulary
-            foreignVocabView.text = vocabulary.foreignVocabulary
+            nativeVocabView.text = vocabulary.nativeString
+            foreignVocabView.text = vocabulary.foreignString
         }
     }
 

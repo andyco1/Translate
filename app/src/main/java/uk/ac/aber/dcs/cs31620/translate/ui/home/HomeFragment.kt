@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.*
 import uk.ac.aber.dcs.cs31620.translate.R
 import uk.ac.aber.dcs.cs31620.translate.databinding.FragmentHomeBinding
+import uk.ac.aber.dcs.cs31620.translate.datasource.TranslateRepository
+import java.time.LocalDateTime
 
 // TODO: Make content fit screen better as it looks vague
 // TODO: Make the spinners show country flags
@@ -27,6 +29,9 @@ class HomeFragment : Fragment() {
 
         setupSpinner(view, homeFragmentBinding.nativeLanguageSpinner, R.array.NativeLanguages)
         setupSpinner(view, homeFragmentBinding.foreignLanguageSpinner, R.array.ForeignLanguages)
+
+        val repository = TranslateRepository(requireActivity().application)
+        val selectVocabulary = repository.getSelectVocabulary(1)
 
         return homeFragmentBinding.root
 
@@ -60,7 +65,7 @@ class HomeFragment : Fragment() {
                 var nativeLanguage : String = homeFragmentBinding.nativeLanguageSpinner.selectedItem.toString()
                 var foreignLanguage : String = homeFragmentBinding.foreignLanguageSpinner.selectedItem.toString()
 
-                Toast.makeText(context, "Item $id selected", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(context, "Item $id selected", Toast.LENGTH_SHORT).show()
             }
         }
     }
