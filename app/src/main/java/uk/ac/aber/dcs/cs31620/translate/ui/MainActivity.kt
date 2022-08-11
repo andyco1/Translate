@@ -13,6 +13,7 @@ import uk.ac.aber.dcs.cs31620.translate.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     // TODO: Implement screen persistence, ws 5
+    // TODO: Add app logo
 
     private lateinit var binding: ActivityMainBinding
 

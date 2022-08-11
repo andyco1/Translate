@@ -1,5 +1,6 @@
 package uk.ac.aber.dcs.cs31620.translate.model
 
+import android.os.Parcelable
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity

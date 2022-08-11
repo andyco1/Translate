@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.*
 import uk.ac.aber.dcs.cs31620.translate.R
 import uk.ac.aber.dcs.cs31620.translate.databinding.FragmentHomeBinding
+import uk.ac.aber.dcs.cs31620.translate.datasource.PreferenceManager
 import uk.ac.aber.dcs.cs31620.translate.datasource.TranslateRepository
 import java.time.LocalDateTime
 
@@ -27,8 +28,17 @@ class HomeFragment : Fragment() {
         homeFragmentBinding =
             FragmentHomeBinding.inflate(inflater, container, false)
 
-        setupSpinner(view, homeFragmentBinding.nativeLanguageSpinner, R.array.NativeLanguages)
-        setupSpinner(view, homeFragmentBinding.foreignLanguageSpinner, R.array.ForeignLanguages)
+        val button = homeFragmentBinding.confirmButton
+
+        button.setOnClickListener() {
+            setupSpinner(view, homeFragmentBinding.nativeLanguageSpinner, R.array.NativeLanguages)
+            setupSpinner(view, homeFragmentBinding.foreignLanguageSpinner, R.array.ForeignLanguages)
+
+            Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show()
+        }
+
+
+
 
 //        val repository = TranslateRepository(requireActivity().application)
 //        val selectVocabulary = repository.getSelectVocabulary(1)
@@ -37,8 +47,13 @@ class HomeFragment : Fragment() {
 
     }
 
+
+
     private fun setupSpinner(view: View?, spinner: Spinner, arrayResourceId: Int) {
-        spinner.setSelection(1)
+//        spinner.setSelection(1)
+
+        spinner
+
 
         val adapter =
             ArrayAdapter.createFromResource(

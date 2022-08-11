@@ -25,6 +25,18 @@ class TranslateViewModel(application : Application) : AndroidViewModel(applicati
             repository.addVocabulary(vocabulary)
         }
     }
+
+    fun deleteVocabulary(vocabulary: Vocabulary) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteVocabulary(vocabulary)
+        }
+    }
+
+    fun deleteAllVocabulary() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllVocabulary()
+        }
+    }
 }
 
 //    private val repository: TranslateRepository = TranslateRepository(application)

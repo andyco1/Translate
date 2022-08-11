@@ -95,6 +95,7 @@ class VocabularyRecyclerWithListAdapter(
 
     override fun onBindViewHolder(holder: VocabularyRecyclerWithListAdapter.ViewHolder, position: Int) {
         holder.bindDataSet(dataSet[position])
+        
     }
 
     fun changeDataSet(dataSet: MutableList<Vocabulary>){

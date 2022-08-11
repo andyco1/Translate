@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/addVocabularyFragment"
         android:name="uk.ac.aber.dcs.cs31620.translate.ui.vocabulary.AddVocabularyFragment"
-        android:label="fragment_add_vocabulary"
+        android:label="@string/addNewVocabularyFragment"
         tools:layout="@layout/fragment_add_vocabulary" >
         <action
             android:id="@+id/action_addVocabularyFragment_to_navigation_vocabulary"

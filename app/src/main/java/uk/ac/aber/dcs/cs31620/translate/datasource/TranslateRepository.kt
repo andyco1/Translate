@@ -15,6 +15,14 @@ class TranslateRepository (private val vocabularyDao: VocabularyDao){
     suspend fun addVocabulary(vocabulary: Vocabulary){
         vocabularyDao.insertSingleVocabularyRow(vocabulary)
     }
+
+    suspend fun deleteVocabulary(vocabulary: Vocabulary){
+        vocabularyDao.deleteVocabularyRow(vocabulary)
+    }
+
+    suspend fun deleteAllVocabulary(){
+        vocabularyDao.deleteAll()
+    }
 }
 //    private val vocabularyDao = TranslateRoomDatabase.getDatabase(application)!!.vocabularyDao()
 //    private val coroutineScope = CoroutineScope(Dispatchers.IO)
