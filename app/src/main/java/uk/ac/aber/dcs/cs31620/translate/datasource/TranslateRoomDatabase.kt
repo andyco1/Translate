@@ -18,76 +18,101 @@ abstract class TranslateRoomDatabase : RoomDatabase() {
 
     abstract fun vocabularyDao(): VocabularyDao
 
-    companion object {
-        private var instance: TranslateRoomDatabase? = null
-        private val coroutineScope = CoroutineScope(Dispatchers.Main)
+//    companion object {
+//        private var instance: TranslateRoomDatabase? = null
+//        private val coroutineScope = CoroutineScope(Dispatchers.Main)
+//
+//        fun getDatabase(context: Context): TranslateRoomDatabase? {
+//            synchronized(this) {
+//                if (instance == null) {
+//                    instance =
+//                        Room.databaseBuilder<TranslateRoomDatabase>(
+//                            context.applicationContext,
+//                            TranslateRoomDatabase::class.java,
+//                            "vocabulary_database"
+//                        )
+//                            .allowMainThreadQueries()
+//                            .addCallback(roomDatabaseCallback(context))
+//                            //.addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+//                            .build()
+//                }
+//                return instance!!
+//            }
+//        }
 
-        fun getDatabase(context: Context): TranslateRoomDatabase? {
-            synchronized(this) {
-                if (instance == null) {
-                    instance =
-                        Room.databaseBuilder<TranslateRoomDatabase>(
-                            context.applicationContext,
-                            TranslateRoomDatabase::class.java,
-                            "vocabulary_database"
-                        )
-                            .allowMainThreadQueries()
-                            .addCallback(roomDatabaseCallback(context))
-                            //.addMigrations(MIGRATION_1_2, MIGRATION_2_3)
-                            .build()
-                }
-                return instance!!
+
+    companion object{
+        @Volatile
+        private var INSTANCE: TranslateRoomDatabase? = null
+
+        fun getDatabase(context: Context): TranslateRoomDatabase {
+            val tempInstance = INSTANCE
+            if (tempInstance != null){
+                return tempInstance
+            }
+            synchronized(this){
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    TranslateRoomDatabase::class.java,
+                    "vocabulary_table"
+                ).build()
+                INSTANCE = instance
+                return instance
             }
         }
 
-        private fun roomDatabaseCallback(context: Context): Callback {
-            return object : Callback() {
-                override fun onCreate(db: SupportSQLiteDatabase) {
-                    super.onCreate(db)
-                    coroutineScope.launch(Dispatchers.IO) {
-                        populatedDatabase(context, getDatabase(context)!!)
-                    }
-                }
-            }
-        }
 
-        val MIGRATION_1_2 = object : Migration(1,2){
-            override fun migrate(database: SupportSQLiteDatabase) {
-                Log.d("migrate", "Doing a migrate from version 1 to 2")
-                // This is where we make relevant database data changes,
-                // or copy data from old table to a new table.
-                // Deals with the migration from version 1 to version 2
-            }
-        }
 
-        private suspend fun populatedDatabase(context: Context, instance: TranslateRoomDatabase) {
-            val vocabulary = Vocabulary(
-                0,
-                "TestNative",
-                "TestForeign"
-            )
-
-            val vocabulary2 = Vocabulary(
-                1,
-                "Test2Native",
-                "Test2Foreign"
-            )
-
-            val vocabulary3 = Vocabulary(
-                2,
-                "Test3Native",
-                "Test3Foreign"
-            )
-
-            val listOfVocab = mutableListOf(
-                vocabulary,
-                vocabulary2,
-                vocabulary3
-            )
-
-            val dao = instance.vocabularyDao()
-            dao.insertMultipleVocabularyRows(listOfVocab)
-
-        }
+//        private fun roomDatabaseCallback(context: Context): Callback {
+//            return object : Callback() {
+//                override fun onCreate(db: SupportSQLiteDatabase) {
+//                    super.onCreate(db)
+//                    coroutineScope.launch(Dispatchers.IO) {
+//                        populatedDatabase(context, getDatabase(context)!!)
+//                    }
+//                }
+//            }
+//        }
+//
+//        val MIGRATION_1_2 = object : Migration(1,2){
+//            override fun migrate(database: SupportSQLiteDatabase) {
+//                Log.d("migrate", "Doing a migrate from version 1 to 2")
+//                // This is where we make relevant database data changes,
+//                // or copy data from old table to a new table.
+//                // Deals with the migration from version 1 to version 2
+//            }
+//        }
+//
+//        private suspend fun populatedDatabase(context: Context, instance: TranslateRoomDatabase) {
+//            val vocabulary = Vocabulary(
+//                0,
+//                "TestNative",
+//                "TestForeign"
+//            )
+//
+//            val vocabulary2 = Vocabulary(
+//                1,
+//                "Test2Native",
+//                "Test2Foreign"
+//            )
+//
+//            val vocabulary3 = Vocabulary(
+//                2,
+//                "Test3Native",
+//                "Test3Foreign"
+//            )
+//
+//            val listOfVocab = mutableListOf(
+//                vocabulary,
+//                vocabulary2,
+//                vocabulary3
+//            )
+//
+//            val dao = instance.vocabularyDao()
+//            dao.insertMultipleVocabularyRows(listOfVocab)
+//
+//        }
     }
+
+//    }
 }

@@ -30,8 +30,8 @@ class HomeFragment : Fragment() {
         setupSpinner(view, homeFragmentBinding.nativeLanguageSpinner, R.array.NativeLanguages)
         setupSpinner(view, homeFragmentBinding.foreignLanguageSpinner, R.array.ForeignLanguages)
 
-        val repository = TranslateRepository(requireActivity().application)
-        val selectVocabulary = repository.getSelectVocabulary(1)
+//        val repository = TranslateRepository(requireActivity().application)
+//        val selectVocabulary = repository.getSelectVocabulary(1)
 
         return homeFragmentBinding.root
 

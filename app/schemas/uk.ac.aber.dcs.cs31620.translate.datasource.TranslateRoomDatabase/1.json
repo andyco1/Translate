@@ -2,10 +2,10 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "3497e4c70778929acaf8d60d87a343c2",
+    "identityHash": "0afa1728d8e6a70a69d30c91d2710c05",
     "entities": [
       {
-        "tableName": "vocabularyTable",
+        "tableName": "vocabulary_table",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nativeString` TEXT NOT NULL, `foreignString` TEXT NOT NULL)",
         "fields": [
           {
@@ -40,7 +40,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3497e4c70778929acaf8d60d87a343c2')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0afa1728d8e6a70a69d30c91d2710c05')"
     ]
   }
 }
