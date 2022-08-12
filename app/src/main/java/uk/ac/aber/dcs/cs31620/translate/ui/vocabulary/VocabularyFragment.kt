@@ -33,16 +33,6 @@ class VocabularyFragment : Fragment() {
     private lateinit var vocabularyRecyclerWithListAdapter: VocabularyRecyclerWithListAdapter
     private lateinit var translateViewModel: TranslateViewModel
 
-//    private val args: VocabularyFragmentArgs by navArgs()
-
-//    private val currentSpinnerValue = args.newSpinnerLanguage
-
-//    private lateinit var vocabularyRecyclerAdapter: VocabularyRecyclerWithListAdapter
-//
-//    private var oldVocabularyList: LiveData<List<Vocabulary>>? = null
-
-//    private var vocabularyViewModel: TranslateViewModel by viewModels()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,19 +41,6 @@ class VocabularyFragment : Fragment() {
         // Inflate the layout for this fragment
         vocabularyFragmentBinding =
             FragmentVocabularyBinding.inflate(inflater, container, false)
-
-
-        // Insert code here
-//        val listVocabulary = vocabularyFragmentBinding.vocabularyList
-//        listVocabulary.setHasFixedSize(true)
-
-        // Sets the layout of the recycler view
-
-//        val adapter = VocabularyRecyclerWithListAdapter()
-//        val recyclerView = vocabularyFragmentBinding.vocabularyList
-//        recyclerView.adapter
-//        val linearLayoutManager = LinearLayoutManager(requireContext())
-//        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
 
         val listVocabulary = vocabularyFragmentBinding.vocabularyList
 
@@ -74,66 +51,10 @@ class VocabularyFragment : Fragment() {
         vocabularyRecyclerWithListAdapter = VocabularyRecyclerWithListAdapter(context)
         listVocabulary.adapter = vocabularyRecyclerWithListAdapter
 
-//        vocabularyRecyclerWithListAdapter.changeDataSet()
-
-//        val adapter = VocabularyRecyclerWithListAdapter(context)
-//        val recyclerView = vocabularyFragmentBinding.vocabularyList
-//        recyclerView.adapter
-//        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-//        val linearLayoutManager = LinearLayoutManager.VERTICAL
-
-
-
         translateViewModel = ViewModelProvider(this).get(TranslateViewModel::class.java)
         translateViewModel.readAllVocabulary.observe(viewLifecycleOwner, Observer { vocabulary ->
             vocabularyRecyclerWithListAdapter.changeDataSet(vocabulary.toMutableList())
         })
-
-
-
-//        listVocabulary.layoutManager = linearLayoutManager
-
-//        val vocabList = vocabularyViewModel.getVocabulary()
-
-//        vocabularyRecyclerAdapter = VocabularyRecyclerWithListAdapter(context)
-//        listVocabulary.adapter = vocabularyRecyclerAdapter
-
-//        vocabularyViewModel = ViewModelProvider(this).get(TranslateViewModel::class.java)
-
-//        if (oldVocabularyList != vocabList) {
-//            oldVocabularyList?.removeObservers(viewLifecycleOwner)
-//            oldVocabularyList = vocabList
-//        }
-//
-//        if (!vocabList.hasObservers()) {
-//            vocabList.observe(viewLifecycleOwner) { vocab ->
-//                vocabularyRecyclerAdapter.changeDataSet(vocab.toMutableList())
-//            }
-//        }
-
-
-
-
-//        val vocabulary = VocabularyList().vocabList
-
-//        val repository = TranslateRepository(requireActivity().application)
-//        val vocabulary = TranslateViewModel(application = )
-//        println(vocabulary)
-
-//        val vocabularyRecyclerAdapter = VocabularyRecyclerWithListAdapter(context, vocabulary.toMutableList())
-//        listVocabulary.adapter = vocabularyRecyclerAdapter
-
-//        vocabularyRecyclerAdapter.clickListener = View.OnClickListener { v ->
-//            val nativeVocabTextView: TextView = v.findViewById(R.id.vocabNative)
-//            Toast.makeText(
-//                context, "${nativeVocabTextView.text} row was clicked",
-//                Toast.LENGTH_SHORT).show()
-//
-//            val foreignVocabTextView: TextView = v.findViewById(R.id.vocabForeign)
-//            Toast.makeText(
-//                context, "${foreignVocabTextView.text} row was clicked",
-//                Toast.LENGTH_SHORT).show()
-//        }
 
         val fab = vocabularyFragmentBinding.fabAdd
         fab.setOnClickListener {
@@ -150,23 +71,7 @@ class VocabularyFragment : Fragment() {
             snackbar.show()
         }
 
-//        if (currentSpinnerValue != args.newSpinnerLanguage) {
-//            translateViewModel.deleteAllVocabulary()
-//        }
-
-
         return vocabularyFragmentBinding.root
     }
-
-//    private fun deleteVocabulary() {
-//
-//        val builder = AlertDialog.Builder(requireContext())
-//        builder.setPositiveButton("Yes") { _, _ ->
-//            translateViewModel.deleteVocabulary()
-//        }
-//        builder.setNegativeButton("No") { _, _ -> }
-//        builder.setTitle("Delete Vocabulary?")
-//        builder.setMessage("Are you sure you want to delete this vocabulary entry?")
-//    }
 
 }

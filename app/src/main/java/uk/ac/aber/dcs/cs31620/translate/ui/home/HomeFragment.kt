@@ -8,13 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import uk.ac.aber.dcs.cs31620.translate.R
 import uk.ac.aber.dcs.cs31620.translate.databinding.FragmentHomeBinding
+import uk.ac.aber.dcs.cs31620.translate.model.TranslateViewModel
 import java.io.File
-
-// TODO: Make content fit screen better as it looks vague
-// TODO: Make the spinners show country flags
 
 private const val FOREIGN_TEXT_FILE = "ForeignTextFile.txt"
 private const val NATIVE_TEXT_FILE = "NativeTextFile.txt"
@@ -24,20 +23,13 @@ class HomeFragment : Fragment() {
 
     private lateinit var homeFragmentBinding: FragmentHomeBinding
 
-    private val languagesArray by lazy { resources.getStringArray(R.array.ForeignLanguages) }
+    private lateinit var translateViewModel: TranslateViewModel
 
     private lateinit var settings: SharedPreferences
     private lateinit var foreignTextFile: File
     private lateinit var nativeTextFile: File
     private lateinit var foreignEditor: Spinner
     private lateinit var nativeEditor: Spinner
-
-
-//    val sharedPreference:SharedPreference = SharedPreference(this.requireActivity())
-
-//    private lateinit var mPreferences: SharedPreferences
-
-//    override fun onCreate(savedInstanceState: Bundle?) {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,15 +39,13 @@ class HomeFragment : Fragment() {
         homeFragmentBinding =
             FragmentHomeBinding.inflate(inflater, container, false)
 
+        translateViewModel = ViewModelProvider(this).get(TranslateViewModel::class.java)
 
         setupSpinner(view, homeFragmentBinding.nativeLanguageSpinner, R.array.NativeLanguages)
         setupSpinner(view, homeFragmentBinding.foreignLanguageSpinner, R.array.ForeignLanguages)
 
         foreignEditor = homeFragmentBinding.foreignLanguageSpinner
         nativeEditor = homeFragmentBinding.nativeLanguageSpinner
-
-//        val repository = TranslateRepository(requireActivity().application)
-//        val selectVocabulary = repository.getSelectVocabulary(1)
 
         return homeFragmentBinding.root
 
@@ -112,10 +102,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupSpinner(view: View?, spinner: Spinner, arrayResourceId: Int) {
-//        spinner.setSelection(1)
-//        textFile = File(requireActivity().filesDir, TEXT_FILE)
-//        readData()
-
 
         val adapter =
             ArrayAdapter.createFromResource(
@@ -129,7 +115,7 @@ class HomeFragment : Fragment() {
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                // We don't need this but we have to provide
+
             }
 
             override fun onItemSelected(
@@ -138,43 +124,19 @@ class HomeFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-//                var selectedLanguage = languagesArray.get(position)
-                // String of the selected languages to be passed to vocabulary fragment
-//                var nativeLanguage : String = homeFragmentBinding.nativeLanguageSpinner.selectedItem.toString()
-//                var foreignLanguage : String = homeFragmentBinding.foreignLanguageSpinner.selectedItem.toString()
 
                 val button = homeFragmentBinding.confirmButton
 
 
-//                val currentPosition = editor.selectedItemPosition
                 button.setOnClickListener {
-////                    val default = position
-//                    settings = requireActivity().getPreferences(MODE_PRIVATE)
-////                    val spinnerPosition = settings.getInt(POSITION, default)
-//
-//                    if (currentPosition != -1) {
-//                        with(settings.edit()) {
-//                            putInt(POSITION, currentPosition)
-//                            apply()
-////                            editor.setSelection(currentPosition)
-//                            spinner.setSelection(currentPosition)
-//                            }
-//                        }
-                    val action = HomeFragmentDirections.actionNavigationHomeToNavigationVocabulary()
-                    findNavController().navigate(action)
-//                }
-//                spinner.setSelection(currentPosition)
-//                }
 
-//                Toast.makeText(context, "Item $selectedLanguage selected", Toast.LENGTH_SHORT).show()
+                    val action = HomeFragmentDirections.actionNavigationHomeToNavigationVocabulary()
+                    translateViewModel.deleteAllVocabulary() // When the user confirms language configuration, the view model is called to delete the vocabulary list
+                    Toast.makeText(requireContext(), "Configuration updated successfully.", Toast.LENGTH_LONG).show()
+                    findNavController().navigate(action)
                 }
             }
         }
     }
 }
 
-
-    //    }
-//        mPreferences = this.requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
-//        super.onCreate(savedInstanceState)
-//    val preferencesEditor: SharedPreferences.Editor get() = mPreferences.edit()

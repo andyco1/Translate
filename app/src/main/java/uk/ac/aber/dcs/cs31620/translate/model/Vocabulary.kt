@@ -7,13 +7,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
-@Parcelize
+
 @Entity(tableName = "vocabulary_table")
 data class Vocabulary(
     @PrimaryKey(autoGenerate = true)
     @NonNull
     var id: Int = 0,
     var nativeString: String = "",
-    var foreignString: String = ""
-): Parcelable
+    var foreignString: String = "")
 

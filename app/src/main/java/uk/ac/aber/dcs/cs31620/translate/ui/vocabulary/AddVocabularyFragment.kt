@@ -18,7 +18,6 @@ import uk.ac.aber.dcs.cs31620.translate.model.Vocabulary
 
 class AddVocabularyFragment : Fragment() {
     private lateinit var addFragmentBinding: FragmentAddVocabularyBinding
-//    private lateinit var vocabularyFragmentBinding: FragmentVocabularyBinding
     private lateinit var translateViewModel: TranslateViewModel
 
     override fun onCreateView(
@@ -26,9 +25,6 @@ class AddVocabularyFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-//        val view = inflater.inflate(R.layout.fragment_add_vocabulary, container, false)
-
-//        val addVocabularyRecyclerAdapter = VocabularyRecyclerWithListAdapter(context)
 
         addFragmentBinding =
             FragmentAddVocabularyBinding.inflate(inflater, container, false)

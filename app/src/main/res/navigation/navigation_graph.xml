@@ -20,9 +20,6 @@
         <action
             android:id="@+id/action_navigation_vocabulary_to_addVocabularyFragment"
             app:destination="@id/addVocabularyFragment" />
-        <action
-            android:id="@+id/action_navigation_vocabulary_to_updateFragment"
-            app:destination="@id/updateFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_practice"
@@ -36,17 +33,5 @@
         <action
             android:id="@+id/action_addVocabularyFragment_to_navigation_vocabulary"
             app:destination="@id/navigation_vocabulary" />
-    </fragment>
-    <fragment
-        android:id="@+id/updateFragment"
-        android:name="uk.ac.aber.dcs.cs31620.translate.updateFragment"
-        android:label="fragment_update"
-        tools:layout="@layout/fragment_update" >
-        <action
-            android:id="@+id/action_updateFragment_to_navigation_vocabulary"
-            app:destination="@id/navigation_vocabulary" />
-        <argument
-            android:name="currentVocabularyRow"
-            app:argType="uk.ac.aber.dcs.cs31620.translate.model.Vocabulary" />
     </fragment>
 </navigation>
