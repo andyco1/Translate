@@ -10,6 +10,8 @@
         <entry key="..\:/Users/georg/AndroidStudioProjects/Translate/app/src/main/res/layout/fragment_add_vocabulary.xml" value="0.20903954802259886" />
         <entry key="..\:/Users/georg/AndroidStudioProjects/Translate/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/georg/AndroidStudioProjects/Translate/app/src/main/res/layout/fragment_practice.xml" value="0.1" />
+        <entry key="..\:/Users/georg/AndroidStudioProjects/Translate/app/src/main/res/layout/fragment_update.xml" value="0.371875" />
+        <entry key="..\:/Users/georg/AndroidStudioProjects/Translate/app/src/main/res/layout/fragment_update_vocabulary.xml" value="0.371875" />
         <entry key="..\:/Users/georg/AndroidStudioProjects/Translate/app/src/main/res/layout/fragment_vocabulary.xml" value="0.33" />
         <entry key="..\:/Users/georg/AndroidStudioProjects/Translate/app/src/main/res/layout/vocab_row.xml" value="0.371875" />
         <entry key="..\:/Users/georg/AndroidStudioProjects/Translate/app/src/main/res/layout/vocabulary_row.xml" value="0.48148148148148145" />
@@ -26,7 +28,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.5" />
+        <option name="scale" value="0.33" />
       </ProjectState>
     </option>
   </component>

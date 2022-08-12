@@ -33,6 +33,10 @@ class VocabularyFragment : Fragment() {
     private lateinit var vocabularyRecyclerWithListAdapter: VocabularyRecyclerWithListAdapter
     private lateinit var translateViewModel: TranslateViewModel
 
+//    private val args: VocabularyFragmentArgs by navArgs()
+
+//    private val currentSpinnerValue = args.newSpinnerLanguage
+
 //    private lateinit var vocabularyRecyclerAdapter: VocabularyRecyclerWithListAdapter
 //
 //    private var oldVocabularyList: LiveData<List<Vocabulary>>? = null
@@ -119,11 +123,6 @@ class VocabularyFragment : Fragment() {
 //        val vocabularyRecyclerAdapter = VocabularyRecyclerWithListAdapter(context, vocabulary.toMutableList())
 //        listVocabulary.adapter = vocabularyRecyclerAdapter
 
-        // TODO: Improve the on click listener as currently there is a bug which toasts both text
-        //  views instead of separate
-
-
-
 //        vocabularyRecyclerAdapter.clickListener = View.OnClickListener { v ->
 //            val nativeVocabTextView: TextView = v.findViewById(R.id.vocabNative)
 //            Toast.makeText(
@@ -139,7 +138,7 @@ class VocabularyFragment : Fragment() {
         val fab = vocabularyFragmentBinding.fabAdd
         fab.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_vocabulary_to_addVocabularyFragment)
-            val snackbar = Snackbar.make(it, "Add new vocabulary FAB", Snackbar.LENGTH_LONG)
+            val snackbar = Snackbar.make(it, "Add new vocabulary", Snackbar.LENGTH_LONG)
 
             val bnv = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav_view)
 
@@ -150,6 +149,10 @@ class VocabularyFragment : Fragment() {
             }
             snackbar.show()
         }
+
+//        if (currentSpinnerValue != args.newSpinnerLanguage) {
+//            translateViewModel.deleteAllVocabulary()
+//        }
 
 
         return vocabularyFragmentBinding.root

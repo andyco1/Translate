@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ui.home.HomeFragment">
@@ -14,13 +13,11 @@
         android:layout_marginStart="52dp"
         android:layout_marginTop="124dp"
         android:layout_marginEnd="11dp"
-        android:layout_marginBottom="143dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/nativeLanguage"
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/foreignLanguageText"
         app:layout_constraintEnd_toStartOf="@+id/nativeLanguageSpinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/configurationText" />
@@ -29,13 +26,11 @@
         android:id="@+id/nativeLanguageSpinner"
         android:layout_width="150dp"
         android:layout_height="48dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="170dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="122dp"
         android:contentDescription="@string/nativeLanguageCD"
-        app:layout_constraintBottom_toTopOf="@+id/foreignLanguageSpinner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/configurationText" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/foreignLanguageSpinner"
@@ -43,7 +38,9 @@
         android:layout_height="48dp"
         android:layout_marginTop="122dp"
         android:layout_marginEnd="40dp"
+        android:layout_marginBottom="270dp"
         android:contentDescription="@string/foreignLanguageCD"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nativeLanguageSpinner" />
 
@@ -52,15 +49,13 @@
         android:layout_width="157dp"
         android:layout_height="28dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="143dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="281dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/foreignLanguage"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/foreignLanguageSpinner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nativeLanguageText" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/configurationText"
@@ -78,39 +73,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="40dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="40dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="105dp" />
-
     <Button
         android:id="@+id/confirmButton"
         android:layout_width="329dp"
         android:layout_height="48dp"
-        android:layout_marginTop="112dp"
         android:layout_marginBottom="110dp"
         android:text="@string/confirmButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/foreignLanguageSpinner"
         tools:ignore="TextContrastCheck" />
 
 
